@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
 
 type Type = 'text';
-type Size = 'sm' | 'md' | 'lg';
-interface InputProps {
+type Size = 'sm' | 'md';
+export interface HeroInputProps {
   type?: Type;
   size?: Size;
   placeholder?: string;
