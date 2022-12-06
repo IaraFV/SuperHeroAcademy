@@ -1,0 +1,67 @@
+@import '../../styles/index.scss';
+
+@mixin input-parameters(
+  $padding,
+  $paddingLeft,
+) {
+  padding: $padding;
+  padding-left: $paddingLeft;
+}
+
+@mixin iconType($position, $iconName) {
+  background-image: url("../../../assets/#{$iconName}.svg");
+  background-repeat: no-repeat;
+  background-position: $position ;
+}
+
+@mixin focus-box-shadow() {
+  box-shadow: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+div {
+  display: flex;
+  align-items: center;
+  background-color: $neutral-4;
+  border-radius: 5px;
+  border: 1px solid transparentize($neutral-1, 0.7);
+
+  input {
+    background-color: $neutral-4;
+    color: $neutral-1;
+    width: 100%;
+    border: none;
+    outline: none;
+    cursor: text;
+    font-size: 1rem;
+
+    &::placeholder {
+      color: $neutral-3;
+      font-weight: 500;
+    }
+  }
+
+  &:focus-within {
+    border: 1px solid $neutral-1;
+    @include focus-box-shadow;
+  }
+}
+
+.hero-input-text-sm {
+  @include input-parameters(6px, 30px);
+
+  @include iconType(0.55rem, 'search');
+
+  &:focus-within {
+    @include iconType(0.55rem, 'search-active');
+  }
+}
+
+.hero-input-text-md {
+  @include input-parameters(8px, 32px);
+
+  @include iconType(0.55rem, 'search');
+
+  &:focus-within {
+    @include iconType(0.55rem, 'search-active');
+  }
+}
